@@ -1,0 +1,43 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    ant_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+ant_controller:
+  ros__parameters:
+    joints: 
+      - joint1Leg
+      - joint1Leg_2
+      - joint1Leg_3
+      - joint1Leg_4
+      - joint1Leg_5
+      - joint1Leg_6
+      - joint2Leg
+      - joint2Leg_2
+      - joint2Leg_3
+      - joint2Leg_4
+      - joint2Leg_5
+      - joint2Leg_6
+      - joint3Leg
+      - joint3Leg_2
+      - joint3Leg_3
+      - joint3Leg_4
+      - joint3Leg_5
+      - joint3Leg_6
+
+    interface_name: effort
+
+    command_interfaces:
+      - effort
+
+    state_interfaces:
+      - position
+      - velocity
+      - effort
+
+    allow_nonzero_velocity_at_trajectory_end: true
