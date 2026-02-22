@@ -1,0 +1,1592 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ant_robot_body">
+    <link name="robot_base">
+        <inertial>
+            <origin rpy="-3.141593 3.141593 -3.141593" xyz="0.000000 0.000000 0.046800" />
+            <inertia izz="0.010957344003465" iyy="0.0094274309535225" ixz="0.0" ixy="0.0" ixx="0.0022800739177674" iyz="0.0" />
+            <mass value="0.5" />
+        </inertial>
+        <collision name="Ant">
+            <origin xyz="0.000000 0.000000 0.046800" rpy="-3.141593 3.141593 -3.141593" />
+            <geometry>
+                <box size="0.245635 0.112682 0.050000" />
+            </geometry>
+        </collision>
+        <visual name="bodyTextured">
+            <origin xyz="0.025649 -0.000000 0.063289" rpy="1.570796 3.141593 -3.141593" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_bodyTextured_vis_1.stl" />
+            </geometry>
+            <material name="bodyTextured_material">
+                <color rgba="0.964706 0.964706 0.964706 1.0" />
+            </material>
+        </visual>
+        <visual name="body">
+            <origin xyz="0.016722 -0.000000 0.048790" rpy="1.570796 3.141593 -3.141593" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_body_vis_1.stl" />
+            </geometry>
+            <material name="body_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="body">
+            <origin xyz="0.016722 -0.000000 0.048790" rpy="1.570796 3.141593 -3.141593" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_body_vis_2.stl" />
+            </geometry>
+            <material name="body_material">
+                <color rgba="0.535294 0.535294 0.535294 1.0" />
+            </material>
+        </visual>
+    </link>
+
+    <joint type="revolute" name="joint1Leg">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="link1RespondableLeg" />
+        <origin xyz="-0.105981 -0.065481 0.052616" rpy="-3.141593 3.141593 -3.141593" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link1RespondableLeg">
+        <inertial>
+            <origin rpy="-1.570796 -1.570796 0.000000" xyz="0.008250 -0.009000 -0.010575" />
+            <inertia izz="0.00031086051841823" iyy="0.00032467001214758" ixz="0.0" ixy="0.0" ixx="0.00032467001214758" iyz="0.0" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="link1RespondableLeg">
+            <origin xyz="0.008250 -0.009000 -0.010575" rpy="-1.570796 -1.570796 0.000000" />
+            <geometry>
+                <box size="0.034500 0.034500 0.036000" />
+            </geometry>
+        </collision>
+        <visual name="link1Leg">
+            <origin xyz="0.007125 -0.009000 -0.009450" rpy="1.570796 3.141593 3.141592" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link1Leg_vis_1.stl" />
+            </geometry>
+            <material name="link1Leg_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint2Leg">
+        <axis xyz="0 0 1" />
+        <parent link="link1RespondableLeg" />
+        <child link="link2RespondableLeg" />
+        <origin xyz="-0.005325 -0.018000 -0.018825" rpy="0.000000 1.570796 0.000000" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link2RespondableLeg">
+        <inertial>
+            <origin rpy="2.660233 1.570800 -0.350445" xyz="-0.029710 -0.022557 -0.011925" />
+            <inertia izz="6.393814813824e-05" iyy="0.00027021820578771" ixz="0.0" ixy="0.0" ixx="0.00033342523110201" iyz="-0.00010482141909481" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.019013 -0.020420 -0.011925" rpy="2.920760 1.570808 0.425105" />
+            <geometry>
+                <box size="0.003000 0.018521 0.021172" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.056947 -0.035393 -0.011925" rpy="2.745173 1.570801 -0.265505" />
+            <geometry>
+                <box size="0.003000 0.017720 0.028921" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.035254 -0.029795 -0.011925" rpy="-1.791009 1.570800 1.751686" />
+            <geometry>
+                <box size="0.003000 0.018520 0.021172" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.001888 -0.002565 -0.011925" rpy="-0.379799 4.712386 -1.845555" />
+            <geometry>
+                <box size="0.003000 0.017720 0.024215" />
+            </geometry>
+        </collision>
+        <visual name="link2Leg">
+            <origin xyz="-0.030290 -0.020277 -0.013500" rpy="5.460268 4.712386 2.786413" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link2Leg_vis_1.stl" />
+            </geometry>
+            <material name="link2Leg_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="link2Leg">
+            <origin xyz="-0.030290 -0.020277 -0.013500" rpy="5.460268 4.712386 2.786413" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link2Leg_vis_2.stl" />
+            </geometry>
+            <material name="link2Leg_material">
+                <color rgba="0.535294 0.535294 0.535294 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint3Leg">
+        <axis xyz="0 0 1" />
+        <parent link="link2RespondableLeg" />
+        <child link="link3RespondableLeg" />
+        <origin xyz="-0.062445 -0.036053 0.000000" rpy="-3.141593 3.141593 3.141593" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link3RespondableLeg">
+        <inertial>
+            <origin rpy="1.570793 3.141553 0.785400" xyz="0.011957 -0.025711 0.012489" />
+            <inertia izz="0.00013074937612539" iyy="0.00077178773464798" ixz="-0.00010540263583867" ixy="-5.6388126685043e-06" ixx="0.00074352314633031" iyz="-3.4289884804401e-05" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.005834 -0.005833 0.013575" rpy="-0.000005 3.141553 0.785401" />
+            <geometry>
+                <box size="0.018001 0.034500 0.034501" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.092836 -0.094363 0.007575" rpy="0.000000 -1.570796 0.000000" />
+            <geometry>
+                <sphere radius="0.0032986958976835" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.036252 -0.061335 0.007575" rpy="0.257603 1.570798 -0.523808" />
+            <geometry>
+                <box size="0.003000 0.014297 0.045614" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.063260 -0.081455 0.007575" rpy="-1.690475 1.570798 -2.283960" />
+            <geometry>
+                <box size="0.003000 0.008814 0.033864" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.084686 -0.092215 0.007575" rpy="-0.484079 4.712386 -0.007227" />
+            <geometry>
+                <box size="0.003000 0.006051 0.020069" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.087416 -0.096363 0.008029" rpy="1.545887 3.129137 1.305299" />
+            <geometry>
+                <box size="0.003655 0.004545 0.013340" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="-0.014900 -0.007731 0.013873" rpy="3.141539 3.140318 0.371811" />
+            <geometry>
+                <box size="0.003691 0.026863 0.042602" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="-0.002956 -0.031559 0.012838" rpy="3.137916 3.136896 0.557971" />
+            <geometry>
+                <box size="0.003657 0.027284 0.036439" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.013484 -0.052977 0.011759" rpy="-0.004168 3.133073 0.726839" />
+            <geometry>
+                <box size="0.003851 0.027417 0.029724" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.033433 -0.071185 0.010650" rpy="-1.574061 3.130262 0.926689" />
+            <geometry>
+                <box size="0.003639 0.022731 0.027357" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.056339 -0.085261 0.009553" rpy="1.568772 3.128522 1.112589" />
+            <geometry>
+                <box size="0.003639 0.015754 0.027118" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.074295 -0.092800 0.008367" rpy="1.545887 3.129137 1.305299" />
+            <geometry>
+                <box size="0.003655 0.009090 0.013340" />
+            </geometry>
+        </collision>
+        <visual name="link3Leg">
+            <origin xyz="0.035561 -0.048040 0.008700" rpy="0 3.141591 0.785395" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link3Leg_vis_1.stl" />
+            </geometry>
+            <material name="link3Leg_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="linkTexturedPart3Leg">
+            <origin xyz="0.029826 -0.054643 0.013853" rpy="3.144038 3.141673 2.404862" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_linkTexturedPart3Leg_vis_1.stl" />
+            </geometry>
+            <material name="linkTexturedPart3Leg_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint1Leg_2">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="link1RespondableLeg_2" />
+        <origin xyz="0.010884 -0.085773 0.052616" rpy="-3.141593 3.141593 -3.141593" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link1RespondableLeg_2">
+        <inertial>
+            <origin rpy="-1.570796 -1.570796 0.000000" xyz="0.008250 -0.009000 -0.010575" />
+            <inertia izz="0.00031086051841823" iyy="0.00032467001214758" ixz="0.0" ixy="0.0" ixx="0.00032467001214758" iyz="0.0" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="link1RespondableLeg">
+            <origin xyz="0.008250 -0.009000 -0.010575" rpy="-1.570796 -1.570796 0.000000" />
+            <geometry>
+                <box size="0.034500 0.034500 0.036000" />
+            </geometry>
+        </collision>
+        <visual name="link1Leg">
+            <origin xyz="0.007125 -0.009000 -0.009450" rpy="1.570796 3.141593 3.141592" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link1Leg_2_vis_1.stl" />
+            </geometry>
+             <material name="link1Leg_2_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual> 
+    </link>
+    <joint type="revolute" name="joint2Leg_2">
+        <axis xyz="0 0 1" />
+        <parent link="link1RespondableLeg_2" />
+        <child link="link2RespondableLeg_2" />
+        <origin xyz="-0.005325 -0.018000 -0.018825" rpy="0.000000 1.570796 0.000000" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link2RespondableLeg_2">
+        <inertial>
+            <origin rpy="2.660233 1.570800 -0.350445" xyz="-0.029710 -0.022557 -0.011925" />
+            <inertia izz="6.393814813824e-05" iyy="0.00027021820578771" ixz="0.0" ixy="0.0" ixx="0.00033342523110201" iyz="-0.00010482141909481" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.019013 -0.020420 -0.011925" rpy="2.920760 1.570808 0.425105" />
+            <geometry>
+                <box size="0.003000 0.018521 0.021172" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.056947 -0.035393 -0.011925" rpy="2.745173 1.570801 -0.265505" />
+            <geometry>
+                <box size="0.003000 0.017720 0.028921" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.035254 -0.029795 -0.011925" rpy="-1.791009 1.570800 1.751686" />
+            <geometry>
+                <box size="0.003000 0.018520 0.021172" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.001888 -0.002565 -0.011925" rpy="-0.379799 4.712386 -1.845555" />
+            <geometry>
+                <box size="0.003000 0.017720 0.024215" />
+            </geometry>
+        </collision>
+        <visual name="link2Leg">
+            <origin xyz="-0.030290 -0.020277 -0.013500" rpy="5.460268 4.712386 2.786413" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link2Leg_2_vis_1.stl" />
+            </geometry>
+             <material name="link2Leg_2_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="link2Leg">
+            <origin xyz="-0.030290 -0.020277 -0.013500" rpy="5.460268 4.712386 2.786413" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link2Leg_2_vis_2.stl" />
+            </geometry>
+             <material name="link2Leg_2_material">
+                <color rgba="0.535294 0.535294 0.535294 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint3Leg_2">
+        <axis xyz="0 0 1" />
+        <parent link="link2RespondableLeg_2" />
+        <child link="link3RespondableLeg_2" />
+        <origin xyz="-0.062445 -0.036053 -0.000000" rpy="-3.141593 3.141593 3.141593" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link3RespondableLeg_2">
+        <inertial>
+            <origin rpy="1.570793 3.141553 0.785400" xyz="0.011957 -0.025711 0.012489" />
+            <inertia izz="0.00013074937612539" iyy="0.00077178773464798" ixz="-0.00010540263583867" ixy="-5.6388126685043e-06" ixx="0.00074352314633031" iyz="-3.4289884804401e-05" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.005834 -0.005833 0.013575" rpy="-0.000005 3.141553 0.785401" />
+            <geometry>
+                <box size="0.018001 0.034500 0.034501" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.092836 -0.094363 0.007575" rpy="0.000000 -1.570796 0.000000" />
+            <geometry>
+                <sphere radius="0.0032986958976835" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.036252 -0.061335 0.007575" rpy="0.257603 1.570798 -0.523808" />
+            <geometry>
+                <box size="0.003000 0.014297 0.045614" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.063260 -0.081455 0.007575" rpy="-1.690475 1.570798 -2.283960" />
+            <geometry>
+                <box size="0.003000 0.008814 0.033864" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.084686 -0.092215 0.007575" rpy="-0.484079 4.712386 -0.007227" />
+            <geometry>
+                <box size="0.003000 0.006051 0.020069" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.087416 -0.096363 0.008029" rpy="1.545887 3.129137 1.305299" />
+            <geometry>
+                <box size="0.003655 0.004545 0.013340" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="-0.014900 -0.007731 0.013873" rpy="3.141539 3.140318 0.371811" />
+            <geometry>
+                <box size="0.003691 0.026863 0.042602" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="-0.002956 -0.031559 0.012838" rpy="3.137916 3.136896 0.557971" />
+            <geometry>
+                <box size="0.003657 0.027284 0.036439" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.013484 -0.052977 0.011759" rpy="-0.004168 3.133073 0.726839" />
+            <geometry>
+                <box size="0.003851 0.027417 0.029724" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.033433 -0.071185 0.010650" rpy="-1.574061 3.130262 0.926689" />
+            <geometry>
+                <box size="0.003639 0.022731 0.027357" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.056339 -0.085261 0.009553" rpy="1.568772 3.128522 1.112589" />
+            <geometry>
+                <box size="0.003639 0.015754 0.027118" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.074295 -0.092800 0.008367" rpy="1.545887 3.129137 1.305299" />
+            <geometry>
+                <box size="0.003655 0.009090 0.013340" />
+            </geometry>
+        </collision>
+        <visual name="link3Leg">
+            <origin xyz="0.035561 -0.048040 0.008700" rpy="0 3.141591 0.785395" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link3Leg_2_vis_1.stl" />
+            </geometry>
+              <material name="link3Leg_2_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="linkTexturedPart3Leg">
+            <origin xyz="0.029826 -0.054642 0.013853" rpy="3.144038 3.141673 2.404862" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_linkTexturedPart3Leg_2_vis_1.stl" />
+            </geometry>
+            <material name="linkTexturedPart3Leg_2_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint1Leg_3">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="link1RespondableLeg_3" />
+        <origin xyz="0.126175 -0.068180 0.052616" rpy="-3.141593 3.141593 -3.141593" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link1RespondableLeg_3">
+        <inertial>
+            <origin rpy="-1.570796 -1.570796 0.000000" xyz="0.008250 -0.009000 -0.010575" />
+            <inertia izz="0.00031086051841823" iyy="0.00032467001214758" ixz="0.0" ixy="0.0" ixx="0.00032467001214758" iyz="0.0" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="link1RespondableLeg">
+            <origin xyz="0.008250 -0.009000 -0.010575" rpy="-1.570796 -1.570796 0.000000" />
+            <geometry>
+                <box size="0.034500 0.034500 0.036000" />
+            </geometry>
+        </collision>
+        <visual name="link1Leg">
+            <origin xyz="0.007125 -0.009000 -0.009450" rpy="1.570796 3.141593 3.141592" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link1Leg_3_vis_1.stl" />
+            </geometry>
+            <material name="link1Leg_3_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint2Leg_3">
+        <axis xyz="0 0 1" />
+        <parent link="link1RespondableLeg_3" />
+        <child link="link2RespondableLeg_3" />
+        <origin xyz="-0.005325 -0.018000 -0.018825" rpy="0.000000 1.570796 0.000000" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link2RespondableLeg_3">
+        <inertial>
+            <origin rpy="2.660233 1.570800 -0.350445" xyz="-0.029710 -0.022557 -0.011925" />
+            <inertia izz="6.393814813824e-05" iyy="0.00027021820578771" ixz="0.0" ixy="0.0" ixx="0.00033342523110201" iyz="-0.00010482141909481" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.019013 -0.020420 -0.011925" rpy="2.920760 1.570808 0.425105" />
+            <geometry>
+                <box size="0.003000 0.018521 0.021172" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.056947 -0.035393 -0.011925" rpy="2.745173 1.570801 -0.265505" />
+            <geometry>
+                <box size="0.003000 0.017720 0.028921" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.035254 -0.029795 -0.011925" rpy="-1.791009 1.570800 1.751686" />
+            <geometry>
+                <box size="0.003000 0.018520 0.021172" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.001888 -0.002565 -0.011925" rpy="-0.379799 4.712386 -1.845555" />
+            <geometry>
+                <box size="0.003000 0.017720 0.024215" />
+            </geometry>
+        </collision>
+        <visual name="link2Leg">
+            <origin xyz="-0.030290 -0.020277 -0.013500" rpy="5.460268 4.712386 2.786413" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link2Leg_3_vis_1.stl" />
+            </geometry>
+            <material name="link2Leg_3_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="link2Leg">
+            <origin xyz="-0.030290 -0.020277 -0.013500" rpy="5.460268 4.712386 2.786413" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link2Leg_3_vis_2.stl" />
+            </geometry>
+            <material name="link2Leg_3_material">
+                <color rgba="0.535294 0.535294 0.535294 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint3Leg_3">
+        <axis xyz="0 0 1" />
+        <parent link="link2RespondableLeg_3" />
+        <child link="link3RespondableLeg_3" />
+        <origin xyz="-0.062445 -0.036053 -0.000000" rpy="-3.141593 3.141593 3.141593" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link3RespondableLeg_3">
+        <inertial>
+            <origin rpy="1.570793 3.141553 0.785400" xyz="0.011957 -0.025711 0.012489" />
+            <inertia izz="0.00013074937612539" iyy="0.00077178773464798" ixz="-0.00010540263583867" ixy="-5.6388126685043e-06" ixx="0.00074352314633031" iyz="-3.4289884804401e-05" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.005834 -0.005833 0.013575" rpy="-0.000005 3.141553 0.785401" />
+            <geometry>
+                <box size="0.018001 0.034500 0.034501" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.092836 -0.094363 0.007575" rpy="0.000000 -1.570796 0.000000" />
+            <geometry>
+                <sphere radius="0.0032986958976835" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.036252 -0.061335 0.007575" rpy="0.257603 1.570798 -0.523808" />
+            <geometry>
+                <box size="0.003000 0.014297 0.045614" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.063260 -0.081455 0.007575" rpy="-1.690475 1.570798 -2.283960" />
+            <geometry>
+                <box size="0.003000 0.008814 0.033864" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.084686 -0.092215 0.007575" rpy="-0.484079 4.712386 -0.007227" />
+            <geometry>
+                <box size="0.003000 0.006051 0.020069" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.087416 -0.096363 0.008029" rpy="1.545887 3.129137 1.305299" />
+            <geometry>
+                <box size="0.003655 0.004545 0.013340" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="-0.014900 -0.007731 0.013873" rpy="3.141539 3.140318 0.371811" />
+            <geometry>
+                <box size="0.003691 0.026863 0.042602" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="-0.002956 -0.031559 0.012838" rpy="3.137916 3.136896 0.557971" />
+            <geometry>
+                <box size="0.003657 0.027284 0.036439" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.013484 -0.052977 0.011759" rpy="-0.004168 3.133073 0.726839" />
+            <geometry>
+                <box size="0.003851 0.027417 0.029724" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.033433 -0.071185 0.010650" rpy="-1.574061 3.130262 0.926689" />
+            <geometry>
+                <box size="0.003639 0.022731 0.027357" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.056339 -0.085261 0.009553" rpy="1.568772 3.128522 1.112589" />
+            <geometry>
+                <box size="0.003639 0.015754 0.027118" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.074295 -0.092800 0.008367" rpy="1.545887 3.129137 1.305299" />
+            <geometry>
+                <box size="0.003655 0.009090 0.013340" />
+            </geometry>
+        </collision>
+        <visual name="link3Leg">
+            <origin xyz="0.035561 -0.048040 0.008700" rpy="0 3.141591 0.785395" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link3Leg_3_vis_1.stl" />
+            </geometry>
+            <material name="link3Leg_3_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="linkTexturedPart3Leg">
+            <origin xyz="0.029826 -0.054643 0.013853" rpy="3.144038 3.141673 2.404862" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_linkTexturedPart3Leg_3_vis_1.stl" />
+            </geometry>
+            <material name="linkTexturedPart3Leg_3_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint1Leg_4">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="link1RespondableLeg_4" />
+        <origin xyz="0.126175 0.068180 0.052616" rpy="-3.141593 3.141593 -3.141593" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link1RespondableLeg_4">
+        <inertial>
+            <origin rpy="-1.570796 -1.570796 0.000000" xyz="0.008250 0.009000 -0.010575" />
+            <inertia izz="0.00031086051841823" iyy="0.00032467001214758" ixz="0.0" ixy="0.0" ixx="0.00032467001214758" iyz="0.0" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="link1RespondableLeg">
+            <origin xyz="0.008250 0.009000 -0.010575" rpy="-1.570796 -1.570796 0.000000" />
+            <geometry>
+                <box size="0.034500 0.034500 0.036000" />
+            </geometry>
+        </collision>
+        <visual name="link1Leg">
+            <origin xyz="0.007125 0.008980 -0.009450" rpy="1.570796 3.141593 -3.141593" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link1Leg_4_vis_1.stl" />
+            </geometry>
+            <material name="link1Leg_4_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint2Leg_4">
+        <axis xyz="0 0 1" />
+        <parent link="link1RespondableLeg_4" />
+        <child link="link2RespondableLeg_4" />
+        <origin xyz="-0.005325 0.018000 -0.018825" rpy="0.000000 1.570796 0.000000" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link2RespondableLeg_4">
+        <inertial>
+            <origin rpy="-0.462613 4.712385 0.331699" xyz="-0.029710 0.022538 -0.011925" />
+            <inertia izz="6.393814813824e-05" iyy="0.00027021820578771" ixz="0.0" ixy="0.0" ixx="0.00033342523110201" iyz="-0.00010482141909481" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.019013 0.020401 -0.011925" rpy="-0.213902 4.712378 -0.432035" />
+            <geometry>
+                <box size="0.003000 0.018521 0.021172" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.056947 0.035374 -0.011925" rpy="-0.379596 4.712384 0.248682" />
+            <geometry>
+                <box size="0.003000 0.017720 0.028921" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.035254 0.029776 -0.011925" rpy="1.348269 4.712385 -1.749372" />
+            <geometry>
+                <box size="0.003000 0.018520 0.021172" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.001888 0.002546 -0.011925" rpy="2.752481 1.570799 1.836242" />
+            <geometry>
+                <box size="0.003000 0.017720 0.024215" />
+            </geometry>
+        </collision>
+        <visual name="link2Leg">
+            <origin xyz="-0.030290 0.020258 -0.013500" rpy="3.254065 4.712377 1.065623" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link2Leg_4_vis_1.stl" />
+            </geometry>
+            <material name="link1Leg_4_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="link2Leg">
+            <origin xyz="-0.030290 0.020258 -0.013500" rpy="3.254065 4.712377 1.065623" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link2Leg_4_vis_2.stl" />
+            </geometry>
+            <material name="link1Leg_4_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint3Leg_4">
+        <axis xyz="0 0 1" />
+        <parent link="link2RespondableLeg_4" />
+        <child link="link3RespondableLeg_4" />
+        <origin xyz="-0.062445 0.036000 -0.000000" rpy="-3.141593 3.141593 -3.141593" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link3RespondableLeg_4">
+        <inertial>
+            <origin rpy="1.925641 1.590354 -0.372378" xyz="0.012346 0.026715 0.012683" />
+            <inertia izz="0.00012109677875492" iyy="0.00076570937949614" ixz="3.3916218396018e-05" ixy="5.8585982618329e-06" ixx="0.00078497914216915" iyz="-7.1666598743321e-05" />
+            <mass value="0.1011593863368" />
+        </inertial>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.005834 0.005867 0.014131" rpy="3.141588 3.141632 -0.785401" />
+            <geometry>
+                <box size="0.018001 0.034500 0.034501" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="-0.014900 0.007763 0.013873" rpy="0.000054 3.140318 -0.371812" />
+            <geometry>
+                <box size="0.003691 0.026863 0.042602" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="-0.002956 0.031592 0.012838" rpy="0.003677 3.136896 -0.557972" />
+            <geometry>
+                <box size="0.003657 0.027284 0.036439" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.013302 0.052467 0.010652" rpy="1.570796 3.134547 -0.699088" />
+            <geometry>
+                <box size="0.004271 0.029345 0.031401" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.033434 0.071218 0.010652" rpy="-1.567634 3.130229 -0.926383" />
+            <geometry>
+                <box size="0.003641 0.022731 0.027357" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.056084 0.084772 0.010652" rpy="1.570796 3.128530 -1.068370" />
+            <geometry>
+                <box size="0.004251 0.015604 0.028885" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.092836 0.094397 0.007775" rpy="-3.141593 1.570796 0.000000" />
+            <geometry>
+                <sphere radius="0.0032986958976835" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.036252 0.061369 0.007575" rpy="-2.886476 4.712387 0.526294" />
+            <geometry>
+                <box size="0.003000 0.014297 0.045614" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.063260 0.081489 0.007575" rpy="1.434171 4.712387 2.300906" />
+            <geometry>
+                <box size="0.003000 0.008814 0.033864" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.084686 0.092249 0.007575" rpy="2.678725 1.570799 0.028439" />
+            <geometry>
+                <box size="0.003000 0.006051 0.020069" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.087416 0.096397 0.007775" rpy="-1.595705 3.154048 -1.305299" />
+            <geometry>
+                <box size="0.003655 0.004545 0.013340" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.074295 0.092834 0.008475" rpy="-1.595705 3.154048 -1.305300" />
+            <geometry>
+                <box size="0.003655 0.009090 0.013340" />
+            </geometry>
+        </collision>
+        <visual name="link3Leg">
+            <origin xyz="0.035561 0.048074 0.008700" rpy="0 3.141598 -0.785395" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link3Leg_4_vis_1.stl" />
+            </geometry>
+             <material name="link3Leg_4_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+      
+        </visual>
+        <visual name="linkTexturedPart3Leg">
+            <origin xyz="0.029810 0.054686 0.013955" rpy="0.001304 3.142443 -2.405235" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_linkTexturedPart3Leg_4_vis_1.stl" />
+            </geometry>
+            <material name="linkTexturedPart3Leg_4_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint1Leg_5">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="link1RespondableLeg_5" />
+        <origin xyz="0.010884 0.085753 0.052616" rpy="-3.141593 3.141593 -3.141593" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link1RespondableLeg_5">
+        <inertial>
+            <origin rpy="-1.570796 -1.570796 0.000000" xyz="0.008250 0.009000 -0.010575" />
+            <inertia izz="0.00031086051841823" iyy="0.00032467001214758" ixz="0.0" ixy="0.0" ixx="0.00032467001214758" iyz="0.0" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="link1RespondableLeg">
+            <origin xyz="0.008250 0.009000 -0.010575" rpy="-1.570796 -1.570796 0.000000" />
+            <geometry>
+                <box size="0.034500 0.034500 0.036000" />
+            </geometry>
+        </collision>
+        <visual name="link1Leg">
+            <origin xyz="0.007125 0.008980 -0.009450" rpy="1.570796 3.141593 -3.141593" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link1Leg_5_vis_1.stl" />
+            </geometry>
+            <material name="link1Leg_5_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint2Leg_5">
+        <axis xyz="0 0 1" />
+        <parent link="link1RespondableLeg_5" />
+        <child link="link2RespondableLeg_5" />
+        <origin xyz="-0.005325 0.018000 -0.018825" rpy="0.000000 1.570796 0.000000" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link2RespondableLeg_5">
+        <inertial>
+            <origin rpy="-0.462613 4.712385 0.331699" xyz="-0.029710 0.022538 -0.011925" />
+            <inertia izz="6.393814813824e-05" iyy="0.00027021820578771" ixz="0.0" ixy="0.0" ixx="0.00033342523110201" iyz="-0.00010482141909481" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.019013 0.020401 -0.011925" rpy="-0.213902 4.712378 -0.432035" />
+            <geometry>
+                <box size="0.003000 0.018521 0.021172" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.056947 0.035374 -0.011925" rpy="-0.379596 4.712384 0.248682" />
+            <geometry>
+                <box size="0.003000 0.017720 0.028921" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.035254 0.029776 -0.011925" rpy="1.348269 4.712385 -1.749372" />
+            <geometry>
+                <box size="0.003000 0.018520 0.021172" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.001888 0.002546 -0.011925" rpy="2.752481 1.570799 1.836242" />
+            <geometry>
+                <box size="0.003000 0.017720 0.024215" />
+            </geometry>
+        </collision>
+        <visual name="link2Leg">
+            <origin xyz="-0.030290 0.020258 -0.013500" rpy="3.254065 4.712377 1.065623" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link2Leg_5_vis_1.stl" />
+            </geometry>
+            <material name="link2Leg_5_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="link2Leg">
+            <origin xyz="-0.030290 0.020258 -0.013500" rpy="3.254065 4.712377 1.065623" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link2Leg_5_vis_2.stl" />
+            </geometry>
+             <material name="link2Leg_5_material">
+                <color rgba="0.535294 0.535294 0.535294 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint3Leg_5">
+        <axis xyz="0 0 1" />
+        <parent link="link2RespondableLeg_5" />
+        <child link="link3RespondableLeg_5" />
+        <origin xyz="-0.062445 0.036000 -0.000000" rpy="-3.141593 3.141593 -3.141593" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link3RespondableLeg_5">
+        <inertial>
+            <origin rpy="1.925641 1.590354 -0.372378" xyz="0.012346 0.026715 0.012683" />
+            <inertia izz="0.00012109677875492" iyy="0.00076570937949614" ixz="3.3916218396018e-05" ixy="5.8585982618329e-06" ixx="0.00078497914216915" iyz="-7.1666598743321e-05" />
+            <mass value="0.1011593863368" />
+        </inertial>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.005834 0.005867 0.014131" rpy="3.141588 3.141632 -0.785401" />
+            <geometry>
+                <box size="0.018001 0.034500 0.034501" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="-0.014900 0.007763 0.013873" rpy="0.000054 3.140318 -0.371812" />
+            <geometry>
+                <box size="0.003691 0.026863 0.042602" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="-0.002956 0.031592 0.012838" rpy="0.003677 3.136896 -0.557972" />
+            <geometry>
+                <box size="0.003657 0.027284 0.036439" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.013302 0.052467 0.010652" rpy="1.570796 3.134547 -0.699088" />
+            <geometry>
+                <box size="0.004271 0.029345 0.031401" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.033434 0.071218 0.010652" rpy="-1.567634 3.130229 -0.926383" />
+            <geometry>
+                <box size="0.003641 0.022731 0.027357" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.056084 0.084772 0.010652" rpy="1.570796 3.128530 -1.068370" />
+            <geometry>
+                <box size="0.004251 0.015604 0.028885" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.092836 0.094397 0.007775" rpy="-3.141593 1.570796 0.000000" />
+            <geometry>
+                <sphere radius="0.0032986958976835" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.036252 0.061369 0.007575" rpy="-2.886476 4.712387 0.526294" />
+            <geometry>
+                <box size="0.003000 0.014297 0.045614" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.063260 0.081489 0.007575" rpy="1.434171 4.712387 2.300906" />
+            <geometry>
+                <box size="0.003000 0.008814 0.033864" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.084686 0.092249 0.007575" rpy="2.678725 1.570799 0.028439" />
+            <geometry>
+                <box size="0.003000 0.006051 0.020069" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.087416 0.096397 0.007775" rpy="-1.595705 3.154048 -1.305299" />
+            <geometry>
+                <box size="0.003655 0.004545 0.013340" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.074295 0.092834 0.008475" rpy="-1.595705 3.154048 -1.305300" />
+            <geometry>
+                <box size="0.003655 0.009090 0.013340" />
+            </geometry>
+        </collision>
+        <visual name="link3Leg">
+            <origin xyz="0.035561 0.048074 0.008700" rpy="0 3.141598 -0.785395" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link3Leg_5_vis_1.stl" />
+            </geometry>
+            <material name="link3Leg_5_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="linkTexturedPart3Leg">
+            <origin xyz="0.029809 0.054686 0.013955" rpy="0.001304 3.142443 -2.405235" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_linkTexturedPart3Leg_5_vis_1.stl" />
+            </geometry>
+            <material name="linkTexturedPart3Leg_5_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint1Leg_6">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="link1RespondableLeg_6" />
+        <origin xyz="-0.105981 0.065480 0.052616" rpy="-3.141593 3.141593 -3.141593" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link1RespondableLeg_6">
+        <inertial>
+            <origin rpy="-1.570796 -1.570796 0.000000" xyz="0.008250 0.009000 -0.010575" />
+            <inertia izz="0.00031086051841823" iyy="0.00032467001214758" ixz="0.0" ixy="0.0" ixx="0.00032467001214758" iyz="0.0" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="link1RespondableLeg">
+            <origin xyz="0.008250 0.009000 -0.010575" rpy="-1.570796 -1.570796 0.000000" />
+            <geometry>
+                <box size="0.034500 0.034500 0.036000" />
+            </geometry>
+        </collision>
+        <visual name="link1Leg">
+            <origin xyz="0.007125 0.008980 -0.009450" rpy="1.570796 3.141593 -3.141593" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link1Leg_6_vis_1.stl" />
+            </geometry>
+            <material name="link1Leg_6_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint2Leg_6">
+        <axis xyz="0 0 1" />
+        <parent link="link1RespondableLeg_6" />
+        <child link="link2RespondableLeg_6" />
+        <origin xyz="-0.005325 0.018000 -0.018825" rpy="0.000000 1.570796 0.000000" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link2RespondableLeg_6">
+        <inertial>
+            <origin rpy="-0.462613 4.712385 0.331699" xyz="-0.029710 0.022538 -0.011925" />
+            <inertia izz="6.393814813824e-05" iyy="0.00027021820578771" ixz="0.0" ixy="0.0" ixx="0.00033342523110201" iyz="-0.00010482141909481" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.019013 0.020401 -0.011925" rpy="-0.213902 4.712378 -0.432035" />
+            <geometry>
+                <box size="0.003000 0.018521 0.021172" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.056947 0.035374 -0.011925" rpy="-0.379596 4.712384 0.248682" />
+            <geometry>
+                <box size="0.003000 0.017720 0.028921" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.035254 0.029776 -0.011925" rpy="1.348269 4.712385 -1.749372" />
+            <geometry>
+                <box size="0.003000 0.018520 0.021172" />
+            </geometry>
+        </collision>
+        <collision name="link2RespondableLeg">
+            <origin xyz="-0.001888 0.002546 -0.011925" rpy="2.752481 1.570799 1.836242" />
+            <geometry>
+                <box size="0.003000 0.017720 0.024215" />
+            </geometry>
+        </collision>
+        <visual name="link2Leg">
+            <origin xyz="-0.030290 0.020258 -0.013500" rpy="3.254065 4.712377 1.065623" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link2Leg_6_vis_1.stl" />
+            </geometry>
+            <material name="link2Leg_6_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="link2Leg">
+            <origin xyz="-0.030290 0.020258 -0.013500" rpy="3.254065 4.712377 1.065623" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link2Leg_6_vis_2.stl" />
+            </geometry>
+        </visual>
+    </link>
+    <joint type="revolute" name="joint3Leg_6">
+        <axis xyz="0 0 1" />
+        <parent link="link2RespondableLeg_6" />
+        <child link="link3RespondableLeg_6" />
+        <origin xyz="-0.062445 0.036000 -0.000000" rpy="-3.141593 3.141593 -3.141593"/>
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="link3RespondableLeg_6">
+        <inertial>
+            <origin rpy="1.925641 1.590354 -0.372378" xyz="0.012346 0.026715 0.012683" />
+            <inertia izz="0.00012109677875492" iyy="0.00076570937949614" ixz="3.3916218396018e-05" ixy="5.8585982618329e-06" ixx="0.00078497914216915" iyz="-7.1666598743321e-05" />
+            <mass value="0.1011593863368" />
+        </inertial>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.005834 0.005867 0.014131" rpy="3.141588 3.141632 -0.785401" />
+            <geometry>
+                <box size="0.018001 0.034500 0.034501" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="-0.014900 0.007763 0.013873" rpy="0.000054 3.140318 -0.371812" />
+            <geometry>
+                <box size="0.003691 0.026863 0.042602" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="-0.002956 0.031592 0.012838" rpy="0.003677 3.136896 -0.557972" />
+            <geometry>
+                <box size="0.003657 0.027284 0.036439" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.013302 0.052467 0.010652" rpy="1.570796 3.134547 -0.699088" />
+            <geometry>
+                <box size="0.004271 0.029345 0.031401" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.033434 0.071218 0.010652" rpy="-1.567634 3.130229 -0.926383" />
+            <geometry>
+                <box size="0.003641 0.022731 0.027357" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.056084 0.084772 0.010652" rpy="1.570796 3.128530 -1.068370" />
+            <geometry>
+                <box size="0.004251 0.015604 0.028885" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.092836 0.094397 0.007775" rpy="-3.141593 1.570796 0.000000" />
+            <geometry>
+                <sphere radius="0.0032986958976835" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.036252 0.061369 0.007575" rpy="-2.886476 4.712387 0.526294" />
+            <geometry>
+                <box size="0.003000 0.014297 0.045614" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.063260 0.081489 0.007575" rpy="1.434171 4.712387 2.300906" />
+            <geometry>
+                <box size="0.003000 0.008814 0.033864" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.084686 0.092249 0.007575" rpy="2.678725 1.570799 0.028439" />
+            <geometry>
+                <box size="0.003000 0.006051 0.020069" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.087416 0.096397 0.007775" rpy="-1.595705 3.154048 -1.305299" />
+            <geometry>
+                <box size="0.003655 0.004545 0.013340" />
+            </geometry>
+        </collision>
+        <collision name="link3RespondableLeg">
+            <origin xyz="0.074295 0.092834 0.008475" rpy="-1.595705 3.154048 -1.305300" />
+            <geometry>
+                <box size="0.003655 0.009090 0.013340" />
+            </geometry>
+        </collision>
+        <visual name="link3Leg">
+            <origin xyz="0.035561 0.048074 0.008700" rpy="0 3.141595 -0.785396" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_link3Leg_6_vis_1.stl" />
+            </geometry>
+            <material name="link3Leg_6_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="linkTexturedPart3Leg">
+            <origin xyz="0.029809 0.054686 0.013954" rpy="0.001304 3.142443 -2.405235" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_linkTexturedPart3Leg_6_vis_1.stl" />
+            </geometry>
+            <material name="linkTexturedPart3Leg_6_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="fixed" name="neckJoint">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="neckRespondable" />
+        <origin xyz="-0.127370 -0.000000 0.057041" rpy="0.000000 1.570796 0.000000" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="neckRespondable">
+        <inertial>
+            <origin xyz="-0.011522 0.000000 -0.006673" rpy="3.141593 3.141593 1.570741" />
+            <inertia izz="0.00040727248025437" iyy="0.00048649959175211" ixx="0.00066790926530463" ixy="4.2921107550098e-08" ixz="2.9266924343462e-08" iyz="-0.00018043969911378" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="neckRespondable">
+            <origin xyz="-0.004988 0.000001 0.000575" rpy="1.990543 1.570804 -1.150842" />
+            <geometry>
+                <box size="0.003000 0.018004 0.027977" />
+            </geometry>
+        </collision>
+        <collision name="neckRespondable">
+            <origin xyz="-0.017475 -0.000000 -0.013278" rpy="0.000000 3.141593 -0.000000" />
+            <geometry>
+                <box size="0.003000 0.018000 0.030705" />
+            </geometry>
+        </collision>
+        <visual name="neck">
+            <origin xyz="-0.006562 -0.000000 -0.013278" rpy="4.712388 -1.570796 0.000000" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_neck_vis_1.stl" />
+            </geometry>
+            <material name="neck_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="neck">
+            <origin xyz="-0.006562 -0.000000 -0.013278" rpy="4.712388 -1.570796 0.000000" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_neck_vis_2.stl" />
+            </geometry>
+            <material name="neck_material">
+                <color rgba="0.535294 0.535294 0.535294 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="fixed" name="neckJoint_2">
+        <axis xyz="0 0 1" />
+        <parent link="neckRespondable" />
+        <child link="headRespondable" />
+        <origin xyz="-0.010550 0.000000 -0.019630" rpy="0.000000 -1.570796 0.000000" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="headRespondable">
+        <inertial>
+            <origin xyz="-0.009000 0.007105 -0.018575" rpy="-1.570796 -1.570796 0.000000" />
+            <inertia izz="0.00024266107566042" iyy="0.00023388919303711" ixx="0.00024419648237371" ixy="-1.1959638079638e-10" ixz="-8.4379651119714e-16" iyz="-1.2068160973135e-05" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="headRespondable">
+            <origin xyz="0.000000 0.008250 -0.018575" rpy="1.570736 3.141591 -3.141585" />
+            <geometry>
+                <box size="0.018000 0.034502 0.034502" />
+            </geometry>
+        </collision>
+        <collision name="headRespondable">
+            <origin xyz="-0.018000 0.005961 -0.018575" rpy="1.570736 3.141591 -3.141587" />
+            <geometry>
+                <box size="0.018000 0.034502 0.034502" />
+            </geometry>
+        </collision>
+        <visual name="head">
+            <origin xyz="-0.009000 0.005980 -0.017450" rpy="1.570796 3.141593 3.141593" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_head_vis_1.stl" />
+            </geometry>
+            <material name="head_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="fixed" name="neckJoint_3">
+        <axis xyz="0 0 1" />
+        <parent link="headRespondable" />
+        <child link="jawRespondable" />
+        <origin xyz="-0.018000 0.000000 -0.010325" rpy="-1.570796 3.141593 3.141593" />
+        <limit lower="-1.570796" upper="1.570796" effort="5" velocity="2"/>
+    </joint>
+    <link name="jawRespondable">
+        <inertial>
+            <origin xyz="0.000000 -0.037635 0.000000" rpy="-0.000000 3.141593 -1.570796" />
+            <inertia izz="2.220012285818e-05" iyy="0.0006942038418085" ixx="0.0007152039580257" ixy="0.0" ixz="0.0" iyz="0.0" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="jawRespondable">
+            <origin xyz="0.000000 -0.037635 0.000000" rpy="-0.000000 3.141593 -1.570796" />
+            <geometry>
+                <box size="0.003000 0.018000 0.102000" />
+            </geometry>
+        </collision>
+        <visual name="jaw">
+            <origin xyz="0.000000 -0.016642 0.000000" rpy="4.712401 3.141548 3.141588" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_jaw_vis_1.stl" />
+            </geometry>
+            <material name="jaw_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="jaw">
+            <origin xyz="0.000000 -0.016642 0.000000" rpy="4.712401 3.141548 3.141588" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_jaw_vis_2.stl" />
+            </geometry>
+            <material name="jaw_material">
+                <color rgba="0.535294 0.535294 0.535294 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="rightJawJoint">
+        <axis xyz="0 0 1" />
+        <parent link="jawRespondable" />
+        <child link="rightJawRespondable" />
+        <origin xyz="-0.000000 -0.040710 -0.042000" rpy="1.570796 3.141593 3.141593" />
+        <limit lower="-1.570796" upper="0.060" effort="20" velocity="0.2"/>
+    </joint>
+    <link name="rightJawRespondable">
+        <inertial>
+            <origin xyz="-0.020023 0.003440 0.024547" rpy="-1.573383 3.153969 -1.333337" />
+            <inertia izz="0.00010584011440367" iyy="0.00041886769060178" ixx="0.00043580198353821" ixy="1.7707287809735e-05" ixz="4.1525277947878e-05" iyz="-1.5860261653398e-05" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.008250 -0.000000 0.028575" rpy="3.141593 3.141648 1.570796" />
+            <geometry>
+                <box size="0.018002 0.034500 0.034501" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.106627 -0.028502 0.023123" rpy="1.569858 3.131424 2.522461" />
+            <geometry>
+                <box size="0.002840 0.005966 0.012045" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.099533 -0.019542 0.022608" rpy="-1.574027 3.153541 -0.723588" />
+            <geometry>
+                <box size="0.002873 0.009088 0.011866" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.087156 -0.007871 0.021546" rpy="-1.569270 3.148863 2.251471" />
+            <geometry>
+                <box size="0.003813 0.015809 0.022900" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.068396 0.004209 0.020480" rpy="-3.139424 3.152287 -1.095545" />
+            <geometry>
+                <box size="0.003751 0.022540 0.022730" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.047712 0.011864 0.019383" rpy="-3.137576 3.153768 -1.334613" />
+            <geometry>
+                <box size="0.003723 0.022447 0.029734" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.023419 0.015354 0.018308" rpy="3.137757 3.152557 1.633977" />
+            <geometry>
+                <box size="0.004169 0.027284 0.036476" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="0.003164 0.014431 0.017278" rpy="-3.141378 3.144562 -1.724811" />
+            <geometry>
+                <box size="0.004058 0.026853 0.042606" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.042241 -0.012060 0.023575" rpy="-1.570660 3.141582 1.099556" />
+            <geometry>
+                <box size="0.004000 0.003000 0.010011" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.052240 -0.008811 0.023575" rpy="-1.570627 3.141563 1.413718" />
+            <geometry>
+                <box size="0.004000 0.003000 0.010011" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.062753 -0.008811 0.023575" rpy="-1.570965 3.141591 1.727874" />
+            <geometry>
+                <box size="0.004000 0.003000 0.010011" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.072752 -0.012060 0.023575" rpy="-1.570934 3.141604 2.042026" />
+            <geometry>
+                <box size="0.004000 0.003000 0.010011" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.081257 -0.018239 0.023575" rpy="-1.570731 3.141576 2.356199" />
+            <geometry>
+                <box size="0.004000 0.003000 0.010011" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.092912 -0.021360 0.023575" rpy="-1.570875 3.141575 -1.312851" />
+            <geometry>
+                <box size="0.004000 0.003000 0.006106" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.086194 -0.020866 0.023575" rpy="-1.570737 3.141619 1.459490" />
+            <geometry>
+                <box size="0.004000 0.003000 0.006106" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.098999 -0.024245 0.023575" rpy="-1.570987 3.141595 -0.943577" />
+            <geometry>
+                <box size="0.004000 0.003000 0.006106" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.103635 -0.029132 0.023575" rpy="-1.570625 3.141580 -0.574292" />
+            <geometry>
+                <box size="0.003999 0.003000 0.006106" />
+            </geometry>
+        </collision>
+        <collision name="rightJawRespondable">
+            <origin xyz="-0.033736 -0.018240 0.023575" rpy="1.570729 3.141587 0.785396" />
+            <geometry>
+                <box size="0.003999 0.003000 0.010011" />
+            </geometry>
+        </collision>
+        <visual name="rightJaw">
+            <origin xyz="-0.046777 -0.007878 0.022863" rpy="6.264013 3.364013 -1.457929" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_rightJaw_vis_1.stl" />
+            </geometry>
+            <material name="rightJaw_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="rightJaw">
+            <origin xyz="-0.046777 -0.007878 0.022863" rpy="6.264013 3.364013 -1.457929" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_rightJaw_vis_2.stl" />
+            </geometry>
+            <material name="rightJaw_material">
+                <color rgba="0.082353 0.082353 0.082353 1.0" />
+            </material>
+        </visual>
+        <visual name="rightJawTexturedPart">
+            <origin xyz="-0.050489 0.000209 0.017193" rpy="3.141736 3.148037 1.918366" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_rightJawTexturedPart_vis_1.stl" />
+            </geometry>
+            <material name="rightJawTexturedPart_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="revolute" name="leftJawJoint">
+        <axis xyz="0 0 -1" />
+        <parent link="jawRespondable" />
+        <child link="leftJawRespondable" />
+        <origin xyz="-0.000000 -0.040710 0.042000" rpy="1.570796 3.141593 3.141593" />
+        <limit lower="-1.570796" upper="0.060" effort="20" velocity="0.2"/>
+        <mimic joint="rightJawJoint" />
+    </joint>
+    <link name="leftJawRespondable">
+        <inertial>
+            <origin xyz="-0.020064 -0.003443 0.024534" rpy="1.580678 4.048999 1.464793" />
+            <inertia izz="0.00010010610437088" iyy="0.00041839681082924" ixx="0.00044354617625882" ixy="1.4149910119708e-05" ixz="-1.5552928134506e-05" iyz="6.9173770620524e-06" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.008250 -0.000000 0.028575" rpy="3.141593 3.141648 1.570796" />
+            <geometry>
+                <box size="0.018002 0.034500 0.034501" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.033736 0.018240 0.023575" rpy="-1.570864 3.141598 -0.785396" />
+            <geometry>
+                <box size="0.003999 0.003000 0.010011" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.042241 0.012060 0.023575" rpy="1.570933 3.141604 -1.099556" />
+            <geometry>
+                <box size="0.004000 0.003000 0.010011" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.052240 0.008811 0.023575" rpy="1.570966 3.141622 -1.413718" />
+            <geometry>
+                <box size="0.004000 0.003000 0.010011" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.062753 0.008811 0.023575" rpy="1.570627 3.141594 -1.727874" />
+            <geometry>
+                <box size="0.004000 0.003000 0.010011" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.072752 0.012060 0.023575" rpy="1.570658 3.141582 -2.042026" />
+            <geometry>
+                <box size="0.004000 0.003000 0.010011" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.081257 0.018240 0.023575" rpy="1.570862 3.141609 -2.356198" />
+            <geometry>
+                <box size="0.004000 0.003000 0.010011" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.092912 0.021360 0.023575" rpy="1.570717 3.141610 1.312851" />
+            <geometry>
+                <box size="0.004000 0.003000 0.006106" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.086194 0.020867 0.023575" rpy="1.570856 3.141567 -1.459490" />
+            <geometry>
+                <box size="0.004000 0.003000 0.006106" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.098999 0.024245 0.023575" rpy="1.570605 3.141590 0.943577" />
+            <geometry>
+                <box size="0.004000 0.003000 0.006106" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.103635 0.029133 0.023575" rpy="1.570968 3.141605 0.574292" />
+            <geometry>
+                <box size="0.003999 0.003000 0.006106" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.106637 0.028517 0.023166" rpy="1.562776 3.151793 0.619133" />
+            <geometry>
+                <box size="0.002840 0.005966 0.012039" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.099531 0.019548 0.022612" rpy="1.568198 3.129325 -2.417092" />
+            <geometry>
+                <box size="0.002875 0.009088 0.011863" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.087177 0.007864 0.021569" rpy="-1.570737 3.154688 0.886406" />
+            <geometry>
+                <box size="0.003547 0.015754 0.022908" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.068365 -0.004152 0.020464" rpy="-3.140312 3.143949 -2.056643" />
+            <geometry>
+                <box size="0.004116 0.022557 0.022764" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.047658 -0.011751 0.019380" rpy="3.137999 3.153971 1.312216" />
+            <geometry>
+                <box size="0.003970 0.022441 0.029735" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="-0.023422 -0.015365 0.018315" rpy="3.137820 3.152353 1.508892" />
+            <geometry>
+                <box size="0.003830 0.027284 0.036456" />
+            </geometry>
+        </collision>
+        <collision name="leftJawRespondable">
+            <origin xyz="0.003157 -0.014395 0.017279" rpy="-3.141366 3.143947 -1.415645" />
+            <geometry>
+                <box size="0.004218 0.026852 0.042607" />
+            </geometry>
+        </collision>
+        <visual name="leftJaw">
+            <origin xyz="-0.046794 0.006678 0.027248" rpy="6.316731 3.585384 -1.709613" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_leftJaw_vis_1.stl" />
+            </geometry>
+            <material name="leftJaw_material">
+                <color rgba="0.142118 0.257882 0.142118 1.0" />
+            </material>
+        </visual>
+        <visual name="leftJaw">
+            <origin xyz="-0.046794 0.006678 0.027248" rpy="6.316731 3.585384 -1.709613" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_leftJaw_vis_2.stl" />
+            </geometry>
+            <material name="leftJaw_material">
+                <color rgba="0.082353 0.082353 0.082353 1.0" />
+            </material>
+        </visual>
+        <visual name="leftJawTexturedPart">
+            <origin xyz="-0.050465 -0.000184 0.017330" rpy="3.141888 3.148252 1.224501" />
+            <geometry>
+                <mesh filename="package://ant_description/meshes/stl/ant_leftJawTexturedPart_vis_1.stl" />
+            </geometry>
+            <material name="leftJawTexturedPart_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+</robot>

@@ -5,8 +5,12 @@ controller_manager:
     ant_controller:
       type: forward_command_controller/ForwardCommandController
 
+    ant_grip_controller:
+      type: position_controllers/GripperActionController
+
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
+    
 
 ant_controller:
   ros__parameters:
@@ -30,10 +34,10 @@ ant_controller:
       - joint3Leg_5
       - joint3Leg_6
 
-    interface_name: effort
+    interface_name: position
 
     command_interfaces:
-      - effort
+      - position
 
     state_interfaces:
       - position
@@ -41,3 +45,7 @@ ant_controller:
       - effort
 
     allow_nonzero_velocity_at_trajectory_end: true
+
+ant_grip_controller:
+  ros__parameters:
+    joint: rightJawJoint

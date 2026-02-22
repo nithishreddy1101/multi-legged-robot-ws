@@ -1,0 +1,1135 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="hexapod">
+    <link name="robot_base">
+        <inertial>
+            <origin rpy="-0.000000 -1.570796 0.000000" xyz="0.000000 0.000000 0.088000" />
+            <inertia ixz="0.0" iyz="-1.0599726169012e-25" izz="0.0013510887854536" ixy="0.0" ixx="0.0024276637552773" iyy="0.0013510883080843" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="hexapod">
+            <origin rpy="3.141592 3.141593 -1.047198" xyz="0.000000 0.000000 0.088000" />
+            <geometry>
+                <box size="0.090000 0.155885 0.042800" />
+            </geometry>
+        </collision>
+        <collision name="hexapod">
+            <origin rpy="3.141592 3.141593 -2.094395" xyz="0.000000 0.000000 0.088000" />
+            <geometry>
+                <box size="0.090000 0.155885 0.042800" />
+            </geometry>
+        </collision>
+        <collision name="hexapod">
+            <origin rpy="3.141593 3.141593 3.141593" xyz="0.000000 0.000000 0.088000" />
+            <geometry>
+                <box size="0.090000 0.155885 0.042800" />
+            </geometry>
+        </collision>
+        <visual name="body">
+            <origin rpy="3.141593 3.141593 3.141593" xyz="-0.000000 -0.000000 0.087900" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_body_vis_1.dae" />
+            </geometry>
+            <material name="body_material">
+                <color rgba="1.000000 1.000000 0.229358 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint1_">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="link1Respondable_" />
+        <origin rpy="3.141593 3.141593 3.141593" xyz="0.080000 -0.000000 0.091002" />
+    </joint>
+    <link name="link1Respondable_">
+        <inertial>
+            <origin rpy="-0.000000 -1.570796 0.000000" xyz="0.014738 -0.000003 -0.005295" />
+            <inertia ixz="-6.8338299564474e-06" iyz="-1.7708812030972e-08" izz="4.1533390889355e-05" ixy="-4.5641021282422e-09" ixx="7.8340611859854e-05" iyy="7.9824142668009e-05" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link1Respondable_">
+            <origin rpy="-3.141593 3.141593 -3.141593" xyz="0.010391 -0.000000 -0.004175" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link1Respondable_">
+            <origin rpy="-3.141593 3.141593 -3.141593" xyz="0.040338 -0.019899 -0.011893" />
+            <geometry>
+                <box size="0.036400 0.003400 0.017900" />
+            </geometry>
+        </collision>
+        <collision name="link1Respondable_">
+            <origin rpy="-3.141593 3.141593 -3.141593" xyz="0.040338 0.019858 -0.011893" />
+            <geometry>
+                <box size="0.036400 0.003400 0.017900" />
+            </geometry>
+        </collision>
+        <visual name="link1_">
+            <origin rpy="-3.141593 3.141593 -3.141593" xyz="0.021040 -0.000020 0.000000" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link1__vis_1.dae" />
+            </geometry>
+            <material name="link1__material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link1_">
+            <origin rpy="-3.141593 3.141593 -3.141593" xyz="0.021040 -0.000020 0.000000" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link1__vis_2.dae" />
+            </geometry>
+            <material name="link1__material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint2_">
+        <axis xyz="0 0 1" />
+        <parent link="link1Respondable_" />
+        <child link="link2Respondable_" />
+        <origin rpy="1.570796 3.141593 3.141593" xyz="0.050264 -0.000000 -0.011203" />
+    </joint>
+    <link name="link2Respondable_">
+        <inertial>
+            <origin rpy="-1.570948 3.141840 1.570796" xyz="0.021368 -0.000957 -0.000929" />
+            <inertia ixz="4.3307204722909e-06" iyz="1.6165304875702e-06" izz="3.1689530655159e-05" ixy="-1.4428314683974e-07" ixx="0.00010087736890985" iyy="8.0637562647446e-05" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link2Respondable_">
+            <origin rpy="-3.141344 3.141449 -0.000000" xyz="0.010391 0.000000 -0.001311" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="-0.000124 3.141593 1.570797" xyz="0.050584 -0.011339 -0.000000" />
+            <geometry>
+                <box size="0.003400 0.017800 0.043200" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="0.338915 4.712381 -0.338909" xyz="0.047122 -0.000690 -0.019879" />
+            <geometry>
+                <box size="0.003400 0.017900 0.067000" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="0.338915 4.712381 -0.338909" xyz="0.047122 -0.000690 0.019879" />
+            <geometry>
+                <box size="0.003400 0.017900 0.067000" />
+            </geometry>
+        </collision>
+        <visual name="link2_">
+            <origin rpy="-1.570812 3.141592 1.570797" xyz="0.032099 -0.001709 0.001054" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link2__vis_1.dae" />
+            </geometry>
+            <material name="link2__material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link2_">
+            <origin rpy="-1.570812 3.141592 1.570797" xyz="0.032099 -0.001709 0.001054" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link2__vis_2.dae" />
+            </geometry>
+            <material name="link2__material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint3_">
+        <axis xyz="0 0 1" />
+        <parent link="link2Respondable_" />
+        <child link="link3Respondable_" />
+        <origin rpy="-3.141593 3.141593 -2.617994" xyz="0.072382 0.000000 -0.000000" />
+    </joint>
+    <link name="link3Respondable_">
+        <inertial>
+            <origin rpy="1.570515 3.141150 0.856995" xyz="0.017578 -0.014182 0.000950" />
+            <inertia ixz="2.5180635506699e-06" iyz="-1.7834374134828e-06" izz="1.8237452925203e-05" ixy="-1.7486273661174e-07" ixx="0.00012192281434478" iyy="0.00011563429148452" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link3Respondable_">
+            <origin rpy="0.000000 3.141593 -0.523599" xyz="0.008999 -0.005195 0.001311" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047197" xyz="0.090768 -0.065166 0.000000" />
+            <geometry>
+                <sphere radius="0.0049999793991446" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047198" xyz="0.062893 -0.049047 -0.000000" />
+            <geometry>
+                <box size="0.002800 0.007100 0.064000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.972222 3.141593 1.047197" xyz="0.042582 -0.037321 0.008116" />
+            <geometry>
+                <box size="0.002800 0.007100 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.169371 3.141593 1.047197" xyz="0.042405 -0.037218 -0.008460" />
+            <geometry>
+                <box size="0.002800 0.007100 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047198" xyz="0.017456 -0.022814 -0.000000" />
+            <geometry>
+                <box size="0.002800 0.036300 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 0.820305" xyz="0.017138 -0.030056 -0.000000" />
+            <geometry>
+                <box size="0.005600 0.007100 0.021300" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.169371" xyz="0.055680 -0.050546 -0.000000" />
+            <geometry>
+                <box size="0.005600 0.007100 0.064000" />
+            </geometry>
+        </collision>
+        <visual name="link3_">
+            <origin rpy="-1.570795 3.141593 1.047198" xyz="0.039590 -0.030363 -0.002763" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link3__vis_1.dae" />
+            </geometry>
+            <material name="link3__material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link3_">
+            <origin rpy="-1.570795 3.141593 1.047198" xyz="0.039590 -0.030363 -0.002763" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link3__vis_2.dae" />
+            </geometry>
+            <material name="link3__material">
+                <color rgba="1.000000 1.000000 0.229358 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint1__2">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="link1Respondable__2" />
+        <origin rpy="3.141592 3.141593 -2.094395" xyz="0.040000 0.069282 0.091002" />
+    </joint>
+    <link name="link1Respondable__2">
+        <inertial>
+            <origin rpy="-0.000000 -1.570796 0.000000" xyz="0.014738 -0.000003 -0.005295" />
+            <inertia ixz="-6.8338299564474e-06" iyz="-1.7708812030972e-08" izz="4.1533390889355e-05" ixy="-4.5641021282422e-09" ixx="7.8340611859854e-05" iyy="7.9824142668009e-05" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link1Respondable_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.010391 -0.000000 -0.004175" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link1Respondable_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.040338 -0.019899 -0.011893" />
+            <geometry>
+                <box size="0.036400 0.003400 0.017900" />
+            </geometry>
+        </collision>
+        <collision name="link1Respondable_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.040338 0.019858 -0.011893" />
+            <geometry>
+                <box size="0.036400 0.003400 0.017900" />
+            </geometry>
+        </collision>
+        <visual name="link1_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.021040 -0.000020 0.000000" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link1__2_vis_1.dae" />
+            </geometry>
+            <material name="link1__2_material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link1_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.021040 -0.000020 0.000000" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link1__2_vis_2.dae" />
+            </geometry>
+            <material name="link1__2_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint2__2">
+        <axis xyz="0 0 1" />
+        <parent link="link1Respondable__2" />
+        <child link="link2Respondable__2" />
+        <origin rpy="1.570796 3.141593 3.141593" xyz="0.050264 -0.000000 -0.011203" />
+    </joint>
+    <link name="link2Respondable__2">
+        <inertial>
+            <origin rpy="-1.570948 3.141840 1.570796" xyz="0.021368 -0.000957 -0.000929" />
+            <inertia ixz="4.3307204722909e-06" iyz="1.6165304875702e-06" izz="3.1689530655159e-05" ixy="-1.4428314683974e-07" ixx="0.00010087736890985" iyy="8.0637562647446e-05" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link2Respondable_">
+            <origin rpy="-3.141344 3.141449 -0.000000" xyz="0.010391 0.000000 -0.001311" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="-0.000124 3.141593 1.570797" xyz="0.050584 -0.011339 -0.000000" />
+            <geometry>
+                <box size="0.003400 0.017800 0.043200" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="0.338915 4.712381 -0.338909" xyz="0.047122 -0.000690 -0.019879" />
+            <geometry>
+                <box size="0.003400 0.017900 0.067000" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="0.338915 4.712381 -0.338909" xyz="0.047122 -0.000690 0.019879" />
+            <geometry>
+                <box size="0.003400 0.017900 0.067000" />
+            </geometry>
+        </collision>
+        <visual name="link2_">
+            <origin rpy="-1.570812 3.141592 1.570797" xyz="0.032099 -0.001709 0.001054" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link2__2_vis_1.dae" />
+            </geometry>
+            <material name="link2__2_material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link2_">
+            <origin rpy="-1.570812 3.141592 1.570797" xyz="0.032099 -0.001709 0.001054" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link2__2_vis_2.dae" />
+            </geometry>
+            <material name="link2__2_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint3__2">
+        <axis xyz="0 0 1" />
+        <parent link="link2Respondable__2" />
+        <child link="link3Respondable__2" />
+        <origin rpy="-3.141593 3.141593 -2.617994" xyz="0.072382 0.000000 -0.000000" />
+    </joint>
+    <link name="link3Respondable__2">
+        <inertial>
+            <origin rpy="1.570515 3.141150 0.856995" xyz="0.017578 -0.014182 0.000950" />
+            <inertia ixz="2.5180635506699e-06" iyz="-1.7834374134828e-06" izz="1.8237452925203e-05" ixy="-1.7486273661174e-07" ixx="0.00012192281434478" iyy="0.00011563429148452" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link3Respondable_">
+            <origin rpy="0.000000 3.141593 -0.523599" xyz="0.008999 -0.005195 0.001311" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047197" xyz="0.090768 -0.065166 0.000000" />
+            <geometry>
+                <sphere radius="0.0049999793991446" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047198" xyz="0.062893 -0.049047 -0.000000" />
+            <geometry>
+                <box size="0.002800 0.007100 0.064000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.972222 3.141593 1.047197" xyz="0.042582 -0.037321 0.008116" />
+            <geometry>
+                <box size="0.002800 0.007100 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.169371 3.141593 1.047197" xyz="0.042405 -0.037218 -0.008460" />
+            <geometry>
+                <box size="0.002800 0.007100 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047198" xyz="0.017456 -0.022814 -0.000000" />
+            <geometry>
+                <box size="0.002800 0.036300 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 0.820305" xyz="0.017138 -0.030056 -0.000000" />
+            <geometry>
+                <box size="0.005600 0.007100 0.021300" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.169371" xyz="0.055680 -0.050546 -0.000000" />
+            <geometry>
+                <box size="0.005600 0.007100 0.064000" />
+            </geometry>
+        </collision>
+        <visual name="link3_">
+            <origin rpy="1.570799 3.141594 1.047196" xyz="0.039590 -0.030363 -0.002763" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link3__2_vis_1.dae" />
+            </geometry>
+            <material name="link3__2_material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link3_">
+            <origin rpy="1.570799 3.141594 1.047196" xyz="0.039590 -0.030363 -0.002763" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link3__2_vis_2.dae" />
+            </geometry>
+            <material name="link3__2_material">
+                <color rgba="1.000000 1.000000 0.229358 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint1__3">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="link1Respondable__3" />
+        <origin rpy="3.141592 3.141593 -1.047197" xyz="-0.040000 0.069282 0.091002" />
+    </joint>
+    <link name="link1Respondable__3">
+        <inertial>
+            <origin rpy="0.000000 -1.570796 0.000000" xyz="0.014738 -0.000003 -0.005295" />
+            <inertia ixz="-6.8338299564474e-06" iyz="-1.7708812030972e-08" izz="4.1533390889355e-05" ixy="-4.5641021282422e-09" ixx="7.8340611859854e-05" iyy="7.9824142668009e-05" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link1Respondable_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.010391 -0.000000 -0.004175" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link1Respondable_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.040338 -0.019899 -0.011893" />
+            <geometry>
+                <box size="0.036400 0.003400 0.017900" />
+            </geometry>
+        </collision>
+        <collision name="link1Respondable_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.040338 0.019858 -0.011893" />
+            <geometry>
+                <box size="0.036400 0.003400 0.017900" />
+            </geometry>
+        </collision>
+        <visual name="link1_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.021040 -0.000020 0.000000" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link1__3_vis_1.dae" />
+            </geometry>
+            <material name="link1__3_material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link1_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.021040 -0.000020 0.000000" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link1__3_vis_2.dae" />
+            </geometry>
+            <material name="link1__3_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint2__3">
+        <axis xyz="0 0 1" />
+        <parent link="link1Respondable__3" />
+        <child link="link2Respondable__3" />
+        <origin rpy="1.570796 3.141593 3.141593" xyz="0.050264 -0.000000 -0.011203" />
+    </joint>
+    <link name="link2Respondable__3">
+        <inertial>
+            <origin rpy="-1.570948 3.141840 1.570796" xyz="0.021368 -0.000957 -0.000929" />
+            <inertia ixz="4.3307204722909e-06" iyz="1.6165304875702e-06" izz="3.1689530655159e-05" ixy="-1.4428314683974e-07" ixx="0.00010087736890985" iyy="8.0637562647446e-05" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link2Respondable_">
+            <origin rpy="-3.141344 3.141449 -0.000000" xyz="0.010391 0.000000 -0.001311" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="-0.000124 3.141593 1.570797" xyz="0.050584 -0.011339 -0.000000" />
+            <geometry>
+                <box size="0.003400 0.017800 0.043200" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="0.338915 4.712381 -0.338909" xyz="0.047122 -0.000690 -0.019879" />
+            <geometry>
+                <box size="0.003400 0.017900 0.067000" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="0.338915 4.712381 -0.338909" xyz="0.047122 -0.000690 0.019879" />
+            <geometry>
+                <box size="0.003400 0.017900 0.067000" />
+            </geometry>
+        </collision>
+        <visual name="link2_">
+            <origin rpy="-1.570812 3.141592 1.570797" xyz="0.032099 -0.001709 0.001054" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link2__3_vis_1.dae" />
+            </geometry>
+            <material name="link2__3_material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link2_">
+            <origin rpy="-1.570812 3.141592 1.570797" xyz="0.032099 -0.001709 0.001054" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link2__3_vis_2.dae" />
+            </geometry>
+            <material name="link2__3_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint3__3">
+        <axis xyz="0 0 1" />
+        <parent link="link2Respondable__3" />
+        <child link="link3Respondable__3" />
+        <origin rpy="-3.141593 3.141593 -2.617994" xyz="0.072382 0.000000 -0.000000" />
+    </joint>
+    <link name="link3Respondable__3">
+        <inertial>
+            <origin rpy="1.570515 3.141150 0.856995" xyz="0.017578 -0.014182 0.000950" />
+            <inertia ixz="2.5180635506699e-06" iyz="-1.7834374134828e-06" izz="1.8237452925203e-05" ixy="-1.7486273661174e-07" ixx="0.00012192281434478" iyy="0.00011563429148452" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link3Respondable_">
+            <origin rpy="0.000000 3.141593 -0.523599" xyz="0.008999 -0.005195 0.001311" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047197" xyz="0.090768 -0.065166 0.000000" />
+            <geometry>
+                <sphere radius="0.0049999793991446" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047198" xyz="0.062893 -0.049047 -0.000000" />
+            <geometry>
+                <box size="0.002800 0.007100 0.064000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.972222 3.141593 1.047197" xyz="0.042582 -0.037321 0.008116" />
+            <geometry>
+                <box size="0.002800 0.007100 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.169371 3.141593 1.047197" xyz="0.042405 -0.037218 -0.008460" />
+            <geometry>
+                <box size="0.002800 0.007100 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047198" xyz="0.017456 -0.022814 -0.000000" />
+            <geometry>
+                <box size="0.002800 0.036300 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 0.820305" xyz="0.017138 -0.030056 -0.000000" />
+            <geometry>
+                <box size="0.005600 0.007100 0.021300" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.169371" xyz="0.055680 -0.050546 -0.000000" />
+            <geometry>
+                <box size="0.005600 0.007100 0.064000" />
+            </geometry>
+        </collision>
+        <visual name="link3_">
+            <origin rpy="-1.570793 3.141593 1.047198" xyz="0.039590 -0.030363 -0.002763" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link3__3_vis_1.dae" />
+            </geometry>
+            <material name="link3__3_material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link3_">
+            <origin rpy="-1.570793 3.141593 1.047198" xyz="0.039590 -0.030363 -0.002763" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link3__3_vis_2.dae" />
+            </geometry>
+            <material name="link3__3_material">
+                <color rgba="1.000000 1.000000 0.229358 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint1__4">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="link1Respondable__4" />
+        <origin rpy="-3.141593 3.141592 0.000000" xyz="-0.080000 0.000000 0.091002" />
+    </joint>
+    <link name="link1Respondable__4">
+        <inertial>
+            <origin rpy="0.000000 -1.570796 0.000000" xyz="0.014738 -0.000003 -0.005295" />
+            <inertia ixz="-6.8338299564474e-06" iyz="-1.7708812030972e-08" izz="4.1533390889355e-05" ixy="-4.5641021282422e-09" ixx="7.8340611859854e-05" iyy="7.9824142668009e-05" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link1Respondable_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.010391 -0.000000 -0.004175" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link1Respondable_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.040338 -0.019899 -0.011893" />
+            <geometry>
+                <box size="0.036400 0.003400 0.017900" />
+            </geometry>
+        </collision>
+        <collision name="link1Respondable_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.040338 0.019858 -0.011893" />
+            <geometry>
+                <box size="0.036400 0.003400 0.017900" />
+            </geometry>
+        </collision>
+        <visual name="link1_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.021040 -0.000020 0.000000" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link1__4_vis_1.dae" />
+            </geometry>
+            <material name="link1__4_material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link1_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.021040 -0.000020 0.000000" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link1__4_vis_2.dae" />
+            </geometry>
+            <material name="link1__4_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint2__4">
+        <axis xyz="0 0 1" />
+        <parent link="link1Respondable__4" />
+        <child link="link2Respondable__4" />
+        <origin rpy="1.570796 3.141593 -3.141593" xyz="0.050264 -0.000000 -0.011203" />
+    </joint>
+    <link name="link2Respondable__4">
+        <inertial>
+            <origin rpy="-1.570948 3.141840 1.570796" xyz="0.021368 -0.000957 -0.000929" />
+            <inertia ixz="4.3307204722909e-06" iyz="1.6165304875702e-06" izz="3.1689530655159e-05" ixy="-1.4428314683974e-07" ixx="0.00010087736890985" iyy="8.0637562647446e-05" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link2Respondable_">
+            <origin rpy="-3.141344 3.141449 -0.000000" xyz="0.010391 0.000000 -0.001311" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="-0.000124 3.141593 1.570797" xyz="0.050584 -0.011339 -0.000000" />
+            <geometry>
+                <box size="0.003400 0.017800 0.043200" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="0.338915 4.712381 -0.338909" xyz="0.047122 -0.000690 -0.019879" />
+            <geometry>
+                <box size="0.003400 0.017900 0.067000" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="0.338915 4.712381 -0.338909" xyz="0.047122 -0.000690 0.019879" />
+            <geometry>
+                <box size="0.003400 0.017900 0.067000" />
+            </geometry>
+        </collision>
+        <visual name="link2_">
+            <origin rpy="-1.570812 3.141592 1.570797" xyz="0.032099 -0.001709 0.001054" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link2__4_vis_1.dae" />
+            </geometry>
+            <material name="link2__4_material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link2_">
+            <origin rpy="-1.570812 3.141592 1.570797" xyz="0.032099 -0.001709 0.001054" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link2__4_vis_2.dae" />
+            </geometry>
+            <material name="link2__4_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint3__4">
+        <axis xyz="0 0 1" />
+        <parent link="link2Respondable__4" />
+        <child link="link3Respondable__4" />
+        <origin rpy="-3.141593 3.141593 -2.617994" xyz="0.072382 0.000000 -0.000000" />
+    </joint>
+    <link name="link3Respondable__4">
+        <inertial>
+            <origin rpy="1.570515 3.141150 0.856995" xyz="0.017578 -0.014182 0.000950" />
+            <inertia ixz="2.5180635506699e-06" iyz="-1.7834374134828e-06" izz="1.8237452925203e-05" ixy="-1.7486273661174e-07" ixx="0.00012192281434478" iyy="0.00011563429148452" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link3Respondable_">
+            <origin rpy="0.000000 3.141593 -0.523599" xyz="0.008999 -0.005195 0.001311" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047197" xyz="0.090768 -0.065166 0.000000" />
+            <geometry>
+                <sphere radius="0.0049999793991446" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047198" xyz="0.062893 -0.049047 -0.000000" />
+            <geometry>
+                <box size="0.002800 0.007100 0.064000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.972222 3.141593 1.047197" xyz="0.042582 -0.037321 0.008116" />
+            <geometry>
+                <box size="0.002800 0.007100 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.169371 3.141593 1.047197" xyz="0.042405 -0.037218 -0.008460" />
+            <geometry>
+                <box size="0.002800 0.007100 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047198" xyz="0.017456 -0.022814 -0.000000" />
+            <geometry>
+                <box size="0.002800 0.036300 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 0.820305" xyz="0.017138 -0.030056 -0.000000" />
+            <geometry>
+                <box size="0.005600 0.007100 0.021300" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.169371" xyz="0.055680 -0.050546 -0.000000" />
+            <geometry>
+                <box size="0.005600 0.007100 0.064000" />
+            </geometry>
+        </collision>
+        <visual name="link3_">
+            <origin rpy="-1.570799 3.141593 1.047194" xyz="0.039590 -0.030363 -0.002764" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link3__4_vis_1.dae" />
+            </geometry>
+            <material name="link3__4_material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link3_">
+            <origin rpy="-1.570799 3.141593 1.047194" xyz="0.039590 -0.030363 -0.002764" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link3__4_vis_2.dae" />
+            </geometry>
+            <material name="link3__4_material">
+                <color rgba="1.000000 1.000000 0.229358 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint1__5">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="link1Respondable__5" />
+        <origin rpy="-3.141592 3.141593 1.047198" xyz="-0.040000 -0.069282 0.091002" />
+    </joint>
+    <link name="link1Respondable__5">
+        <inertial>
+            <origin rpy="-0.000000 -1.570796 0.000000" xyz="0.014738 -0.000003 -0.005295" />
+            <inertia ixz="-6.8338299564474e-06" iyz="-1.7708812030972e-08" izz="4.1533390889355e-05" ixy="-4.5641021282422e-09" ixx="7.8340611859854e-05" iyy="7.9824142668009e-05" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link1Respondable_">
+            <origin rpy="3.141593 3.141593 3.141593" xyz="0.010391 -0.000000 -0.004175" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link1Respondable_">
+            <origin rpy="3.141593 3.141593 3.141593" xyz="0.040338 -0.019899 -0.011893" />
+            <geometry>
+                <box size="0.036400 0.003400 0.017900" />
+            </geometry>
+        </collision>
+        <collision name="link1Respondable_">
+            <origin rpy="3.141593 3.141593 3.141593" xyz="0.040338 0.019858 -0.011893" />
+            <geometry>
+                <box size="0.036400 0.003400 0.017900" />
+            </geometry>
+        </collision>
+        <visual name="link1_">
+            <origin rpy="3.141593 3.141593 3.141593" xyz="0.021040 -0.000020 0.000000" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link1__5_vis_1.dae" />
+            </geometry>
+            <material name="link1__5_material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link1_">
+            <origin rpy="3.141593 3.141593 3.141593" xyz="0.021040 -0.000020 0.000000" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link1__5_vis_2.dae" />
+            </geometry>
+            <material name="link1__5_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint2__5">
+        <axis xyz="0 0 1" />
+        <parent link="link1Respondable__5" />
+        <child link="link2Respondable__5" />
+        <origin rpy="1.570796 3.141593 -3.141593" xyz="0.050264 -0.000000 -0.011203" />
+    </joint>
+    <link name="link2Respondable__5">
+        <inertial>
+            <origin rpy="-1.570948 3.141840 1.570796" xyz="0.021368 -0.000957 -0.000929" />
+            <inertia ixz="4.3307204722909e-06" iyz="1.6165304875702e-06" izz="3.1689530655159e-05" ixy="-1.4428314683974e-07" ixx="0.00010087736890985" iyy="8.0637562647446e-05" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link2Respondable_">
+            <origin rpy="-3.141344 3.141449 -0.000000" xyz="0.010391 0.000000 -0.001311" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="-0.000124 3.141593 1.570797" xyz="0.050584 -0.011339 -0.000000" />
+            <geometry>
+                <box size="0.003400 0.017800 0.043200" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="0.338915 4.712381 -0.338909" xyz="0.047122 -0.000690 -0.019879" />
+            <geometry>
+                <box size="0.003400 0.017900 0.067000" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="0.338915 4.712381 -0.338909" xyz="0.047122 -0.000690 0.019879" />
+            <geometry>
+                <box size="0.003400 0.017900 0.067000" />
+            </geometry>
+        </collision>
+        <visual name="link2_">
+            <origin rpy="-1.570812 3.141592 1.570797" xyz="0.032099 -0.001709 0.001054" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link2__5_vis_1.dae" />
+            </geometry>
+            <material name="link2__5_material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link2_">
+            <origin rpy="-1.570812 3.141592 1.570797" xyz="0.032099 -0.001709 0.001054" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link2__5_vis_2.dae" />
+            </geometry>
+            <material name="link2__5_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint3__5">
+        <axis xyz="0 0 1" />
+        <parent link="link2Respondable__5" />
+        <child link="link3Respondable__5" />
+        <origin rpy="-3.141593 3.141593 -2.617994" xyz="0.072382 0.000000 -0.000000" />
+    </joint>
+    <link name="link3Respondable__5">
+        <inertial>
+            <origin rpy="1.570515 3.141150 0.856995" xyz="0.017578 -0.014182 0.000950" />
+            <inertia ixz="2.5180635506699e-06" iyz="-1.7834374134828e-06" izz="1.8237452925203e-05" ixy="-1.7486273661174e-07" ixx="0.00012192281434478" iyy="0.00011563429148452" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link3Respondable_">
+            <origin rpy="0.000000 3.141593 -0.523599" xyz="0.008999 -0.005195 0.001311" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047197" xyz="0.090768 -0.065166 0.000000" />
+            <geometry>
+                <sphere radius="0.0049999793991446" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047198" xyz="0.062893 -0.049047 -0.000000" />
+            <geometry>
+                <box size="0.002800 0.007100 0.064000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.972222 3.141593 1.047197" xyz="0.042582 -0.037321 0.008116" />
+            <geometry>
+                <box size="0.002800 0.007100 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.169371 3.141593 1.047197" xyz="0.042405 -0.037218 -0.008460" />
+            <geometry>
+                <box size="0.002800 0.007100 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047198" xyz="0.017456 -0.022814 -0.000000" />
+            <geometry>
+                <box size="0.002800 0.036300 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 0.820305" xyz="0.017138 -0.030056 -0.000000" />
+            <geometry>
+                <box size="0.005600 0.007100 0.021300" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.169371" xyz="0.055680 -0.050546 -0.000000" />
+            <geometry>
+                <box size="0.005600 0.007100 0.064000" />
+            </geometry>
+        </collision>
+        <visual name="link3_">
+            <origin rpy="1.570797 3.141593 1.047196" xyz="0.039590 -0.030363 -0.002763" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link3__5_vis_1.dae" />
+            </geometry>
+            <material name="link3__5_material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link3_">
+            <origin rpy="1.570797 3.141593 1.047196" xyz="0.039590 -0.030363 -0.002763" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link3__5_vis_2.dae" />
+            </geometry>
+            <material name="link3__5_material">
+                <color rgba="1.000000 1.000000 0.229358 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint1__6">
+        <axis xyz="0 0 1" />
+        <parent link="robot_base" />
+        <child link="link1Respondable__6" />
+        <origin rpy="-3.141592 3.141593 2.094395" xyz="0.040000 -0.069282 0.091002" />
+    </joint>
+    <link name="link1Respondable__6">
+        <inertial>
+            <origin rpy="0.000000 -1.570796 0.000000" xyz="0.014738 -0.000003 -0.005295" />
+            <inertia ixz="-6.8338299564474e-06" iyz="-1.7708812030972e-08" izz="4.1533390889355e-05" ixy="-4.5641021282422e-09" ixx="7.8340611859854e-05" iyy="7.9824142668009e-05" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link1Respondable_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.010391 -0.000000 -0.004175" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link1Respondable_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.040338 -0.019899 -0.011893" />
+            <geometry>
+                <box size="0.036400 0.003400 0.017900" />
+            </geometry>
+        </collision>
+        <collision name="link1Respondable_">
+            <origin rpy="3.141593 3.141593 -3.141593" xyz="0.040338 0.019858 -0.011893" />
+            <geometry>
+                <box size="0.036400 0.003400 0.017900" />
+            </geometry>
+        </collision>
+        <visual name="link1_">
+            <origin rpy="3.141593 3.141593 3.141593" xyz="0.021040 -0.000020 0.000000" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link1__6_vis_1.dae" />
+            </geometry>
+            <material name="link1__6_material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link1_">
+            <origin rpy="3.141593 3.141593 3.141593" xyz="0.021040 -0.000020 0.000000" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link1__6_vis_2.dae" />
+            </geometry>
+            <material name="link1__6_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint2__6">
+        <axis xyz="0 0 1" />
+        <parent link="link1Respondable__6" />
+        <child link="link2Respondable__6" />
+        <origin rpy="1.570796 3.141593 -3.141593" xyz="0.050264 -0.000000 -0.011203" />
+    </joint>
+    <link name="link2Respondable__6">
+        <inertial>
+            <origin rpy="-1.570948 3.141840 1.570796" xyz="0.021368 -0.000957 -0.000929" />
+            <inertia ixz="4.3307204722909e-06" iyz="1.6165304875702e-06" izz="3.1689530655159e-05" ixy="-1.4428314683974e-07" ixx="0.00010087736890985" iyy="8.0637562647446e-05" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link2Respondable_">
+            <origin rpy="-3.141344 3.141449 -0.000000" xyz="0.010391 0.000000 -0.001311" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="-0.000124 3.141593 1.570797" xyz="0.050584 -0.011339 -0.000000" />
+            <geometry>
+                <box size="0.003400 0.017800 0.043200" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="0.338915 4.712381 -0.338909" xyz="0.047122 -0.000690 -0.019879" />
+            <geometry>
+                <box size="0.003400 0.017900 0.067000" />
+            </geometry>
+        </collision>
+        <collision name="link2Respondable_">
+            <origin rpy="0.338915 4.712381 -0.338909" xyz="0.047122 -0.000690 0.019879" />
+            <geometry>
+                <box size="0.003400 0.017900 0.067000" />
+            </geometry>
+        </collision>
+        <visual name="link2_">
+            <origin rpy="-1.570812 3.141592 1.570797" xyz="0.032099 -0.001709 0.001054" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link2__6_vis_1.dae" />
+            </geometry>
+            <material name="link2__6_material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link2_">
+            <origin rpy="-1.570812 3.141592 1.570797" xyz="0.032099 -0.001709 0.001054" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link2__6_vis_2.dae" />
+            </geometry>
+            <material name="link2__6_material">
+                <color rgba="1.000000 1.000000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+    <joint type="continuous" name="joint3__6">
+        <axis xyz="0 0 1" />
+        <parent link="link2Respondable__6" />
+        <child link="link3Respondable__6" />
+        <origin rpy="-3.141593 3.141593 -2.617994" xyz="0.072382 0.000000 -0.000000" />
+    </joint>
+    <link name="link3Respondable__6">
+        <inertial>
+            <origin rpy="1.570515 3.141150 0.856995" xyz="0.017578 -0.014182 0.000950" />
+            <inertia ixz="2.5180635506699e-06" iyz="-1.7834374134828e-06" izz="1.8237452925203e-05" ixy="-1.7486273661174e-07" ixx="0.00012192281434478" iyy="0.00011563429148452" />
+            <mass value="0.050000000745058" />
+        </inertial>
+        <collision name="link3Respondable_">
+            <origin rpy="0.000000 3.141593 -0.523599" xyz="0.008999 -0.005195 0.001311" />
+            <geometry>
+                <box size="0.040600 0.019300 0.033300" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047197" xyz="0.090768 -0.065166 0.000000" />
+            <geometry>
+                <sphere radius="0.0049999793991446" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047198" xyz="0.062893 -0.049047 -0.000000" />
+            <geometry>
+                <box size="0.002800 0.007100 0.064000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.972222 3.141593 1.047197" xyz="0.042582 -0.037321 0.008116" />
+            <geometry>
+                <box size="0.002800 0.007100 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.169371 3.141593 1.047197" xyz="0.042405 -0.037218 -0.008460" />
+            <geometry>
+                <box size="0.002800 0.007100 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.047198" xyz="0.017456 -0.022814 -0.000000" />
+            <geometry>
+                <box size="0.002800 0.036300 0.032000" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 0.820305" xyz="0.017138 -0.030056 -0.000000" />
+            <geometry>
+                <box size="0.005600 0.007100 0.021300" />
+            </geometry>
+        </collision>
+        <collision name="link3Respondable_">
+            <origin rpy="-1.570796 3.141593 1.169371" xyz="0.055680 -0.050546 -0.000000" />
+            <geometry>
+                <box size="0.005600 0.007100 0.064000" />
+            </geometry>
+        </collision>
+        <visual name="link3_">
+            <origin rpy="1.570792 3.141590 1.047199" xyz="0.039590 -0.030363 -0.002764" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link3__6_vis_1.dae" />
+            </geometry>
+            <material name="link3__6_material">
+                <color rgba="0.435294 0.435294 0.435294 1.0" />
+            </material>
+        </visual>
+        <visual name="link3_">
+            <origin rpy="1.570792 3.141590 1.047199" xyz="0.039590 -0.030363 -0.002764" />
+            <geometry>
+                <mesh filename="package://hexapod_description/meshes/dae/hexapod_link3__6_vis_2.dae" />
+            </geometry>
+            <material name="link3__6_material">
+                <color rgba="1.000000 1.000000 0.229358 1.0" />
+            </material>
+        </visual>
+    </link>
+</robot>
