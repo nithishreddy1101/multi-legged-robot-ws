@@ -14,24 +14,35 @@ controller_manager:
 
 ant_controller:
   ros__parameters:
-    joints: 
+    joints:
+      # Leg 1
       - joint1Leg
-      - joint1Leg_2
-      - joint1Leg_3
-      - joint1Leg_4
-      - joint1Leg_5
-      - joint1Leg_6
       - joint2Leg
-      - joint2Leg_2
-      - joint2Leg_3
-      - joint2Leg_4
-      - joint2Leg_5
-      - joint2Leg_6
       - joint3Leg
+
+      # Leg 2
+      - joint1Leg_2
+      - joint2Leg_2
       - joint3Leg_2
+
+      # Leg 3
+      - joint1Leg_3
+      - joint2Leg_3
       - joint3Leg_3
+
+      # Leg 4
+      - joint1Leg_4
+      - joint2Leg_4
       - joint3Leg_4
+
+      # Leg 5
+      - joint1Leg_5
+      - joint2Leg_5
       - joint3Leg_5
+
+      # Leg 6
+      - joint1Leg_6
+      - joint2Leg_6
       - joint3Leg_6
 
     interface_name: position
