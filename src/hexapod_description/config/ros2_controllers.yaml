@@ -1,0 +1,40 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    hexapod_controller:
+      type: forward_command_controller/ForwardCommandController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+hexapod_controller:
+  ros__parameters:
+    joints:
+      - joint1_
+      - joint2_
+      - joint3_
+      - joint1__2
+      - joint2__2
+      - joint3__2
+      - joint1__3
+      - joint2__3
+      - joint3__3
+      - joint1__4
+      - joint2__4
+      - joint3__4
+      - joint1__5
+      - joint2__5
+      - joint3__5
+      - joint1__6
+      - joint2__6
+      - joint3__6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+      - effort
+    allow_nonzero_velocity_at_trajectory_end: true
